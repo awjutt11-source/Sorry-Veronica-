@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffd6e5">
+<title>Veronica G — A Little Sorry Surprise 💗</title>
+<style>
+*{box-sizing:border-box}
+:root{--pink:#ff7da8;--deep:#cf3d75;--ink:#71344d}
+body{margin:0;min-height:100vh;font-family:Georgia,serif;color:var(--ink);background:radial-gradient(circle at top,#fff5f8,#ffdce8 55%,#ffc6da);overflow-x:hidden}
+.center{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px 13px}
+.card{width:min(100%,480px);background:#ffffffeb;border:1px solid #fff;border-radius:27px;padding:25px 21px;text-align:center;box-shadow:0 18px 55px #bd4a7630}
+h1{font-size:clamp(26px,7vw,35px);color:var(--deep);margin:8px 0 12px}
+h2{color:var(--deep);font-size:25px;margin:8px 0 12px}
+p{line-height:1.7}
+.small{font:13px Arial,sans-serif;color:#a35b76}
+input{width:100%;padding:14px;border:1px solid #f1a7c1;border-radius:14px;font-size:17px;text-align:center;background:#fffafd;color:var(--ink);outline:none}
+button{border:0;border-radius:999px;padding:13px 21px;background:linear-gradient(135deg,#ff91b5,#d83e79);color:#fff;font-size:15px;font-weight:bold;cursor:pointer;box-shadow:0 8px 20px #e45b8a35;margin:8px 4px}
+button.secondary{background:#fff0f5;color:#c33e72;border:1px solid #f4b3ca;box-shadow:none}
+#error{color:#c93670;min-height:22px;font:14px Arial}
+#main{display:none}
+.page{display:none;animation:appear .45s ease}
+.page.active{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.dots{display:flex;justify-content:center;gap:7px;margin:15px 0}
+.dot{width:8px;height:8px;border-radius:50%;background:#f4c2d3}
+.dot.active{background:#d83e79;width:22px;border-radius:8px}
+.letter{background:#fff7fa;border:1px dashed #f0a1bc;border-radius:18px;padding:18px;text-align:left;margin:15px 0;font-size:16px;line-height:1.8}
+.bear{position:relative;width:150px;height:170px;margin:8px auto 12px;animation:bob 2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+.ear{position:absolute;top:8px;width:48px;height:48px;border-radius:50%;background:#bd8a72;border:5px solid #8e5d4d}
+.ear.left{left:20px}.ear.right{right:20px}
+.head{position:absolute;top:20px;left:27px;width:96px;height:92px;border-radius:48%;background:#c99a80;border:4px solid #8e5d4d;z-index:2}
+.muzzle{position:absolute;left:27px;bottom:13px;width:38px;height:29px;border-radius:50%;background:#f2d7c7}
+.muzzle:after{content:"";position:absolute;left:16px;top:7px;width:8px;height:6px;border-radius:50%;background:#5c3940}
+.eye{position:absolute;top:38px;width:7px;height:9px;border-radius:50%;background:#38242a}
+.eye.one{left:24px}.eye.two{right:24px}
+.bodybear{position:absolute;bottom:0;left:29px;width:92px;height:82px;border-radius:38px 38px 24px 24px;background:#c99a80;border:4px solid #8e5d4d;z-index:1}
+.shirt{position:absolute;bottom:0;left:0;width:100%;height:48px;border-radius:18px;background:#24212a;color:#ff9fbd;font:bold 14px Arial;display:flex;align-items:center;justify-content:center}
+.arm{position:absolute;top:25px;width:28px;height:55px;background:#c99a80;border:4px solid #8e5d4d;border-radius:20px;z-index:0}
+.arm.a{left:-17px;transform:rotate(24deg)}.arm.b{right:-17px;transform:rotate(-24deg)}
+.bigemoji{font-size:42px;margin:5px}
+.heart{position:fixed;bottom:-35px;pointer-events:none;animation:floatUp linear forwards;opacity:.8;z-index:5}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+.final{font-size:20px;color:#c93670;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="center" id="gate">
+ <div class="card">
+  <div class="bigemoji">🔐💗</div>
+  <h1>Aap Ke Liye Ek Surprise</h1>
+  <p>Is chhote se surprise ko kholne ke liye password likhiye 🥺🌷</p>
+  <input id="pass" type="password" placeholder="Enter password" autocomplete="off">
+  <button onclick="unlock()">Surprise Open Karein ❤️</button>
+  <div id="error"></div>
+  <div class="small">Sirf Veronica G ke liye 💌</div>
+ </div>
+</div>
+
+<div class="center" id="main">
+ <div class="card">
+  <div class="small">A little message from my heart 💗</div>
+  <div class="dots" id="dots"></div>
+
+  <section class="page active">
+   <div class="bigemoji">🥺💞</div>
+   <h1>Please Maan Jayein Na</h1>
+   <div class="bear">
+    <div class="ear left"></div><div class="ear right"></div>
+    <div class="head"><div class="eye one"></div><div class="eye two"></div><div class="muzzle"></div></div>
+    <div class="arm a"></div><div class="arm b"></div>
+    <div class="bodybear"><div class="shirt">SORRY ❤️</div></div>
+   </div>
+   <p>Ye chhota sa teddy bhi aap se keh raha hai… please gussa chhor dein na 🧸🌸</p>
+   <button onclick="go(1)">Aage dekhein 💌</button>
+  </section>
+
+  <section class="page">
+   <div class="bigemoji">💌🌷</div>
+   <h2>Meri Pyari Si Jaan ❤️</h2>
+   <div class="letter">
+    Meri Pyari Si Jaan 🥺❤️,<br><br>
+    I'm really sorry 😔💗. Mera irada aap ko hurt karna bilkul bhi nahi tha. Mujhse galti ho gayi, aur mujhe iska ehsaas hai. 🙏🥺<br><br>
+    Aap mere liye bohat special hain 🌹✨. Main nahi chahta ke meri kisi baat ki wajah se aap udaas hon. Aapki narazgi mujhe achi nahi lagti. 💔<br><br>
+    Please meri baat samajhne ki koshish kijiye. Jab aapka dil kare, mujhe maaf kar dijiyega. Main aapki feelings ki respect karta hoon. 🫶💞<br><br>
+    Once again, I'm truly sorry. 🥺🌸❤️
+   </div>
+   <button onclick="go(2)">Ek aur baat… 💗</button>
+  </section>
+
+  <section class="page">
+   <div class="bigemoji">🧸🌹</div>
+   <h2>Aap Ki Smile Ke Naam 😊</h2>
+   <p>Aapki smile bohat pyari hai. ✨<br>Main bas chahta hoon ke aap khush rahein aur aapke chehre par hamesha muskurahat rahe. 🌷💖</p>
+   <div class="letter" style="text-align:center">
+    Naraz hona aapka haq hai, lekin meri sorry bhi qabool kar lijiye na. 🥺🙏<br><br>
+    <strong>Ek chhoti si smile please? 😊💕</strong>
+   </div>
+   <button onclick="go(3)">Last surprise 🎁</button>
+  </section>
+
+  <section class="page">
+   <div class="bigemoji">🎁💝</div>
+   <h2>Bas Aakhri Baat ❤️</h2>
+   <p class="final">Please gussa chhor dein, Veronica G 🥺💗</p>
+   <p>Ye website sirf aapko manane ke liye banayi hai. Aap jab ready hon tab baat kar lijiyega. 🌸</p>
+   <button onclick="showLove()">Tap for flowers 🌸</button>
+   <div id="flowerMsg" style="display:none;font-size:20px;color:#c93670;margin-top:12px">Aap ke liye dher saare phool! 🌷🌹🌸💐💗</div>
+   <button class="secondary" onclick="go(0)">Dobara dekhein ↺</button>
+  </section>
+  <div class="small" style="margin-top:15px">Made with care, just for you ✨</div>
+ </div>
+</div>
+
+<script>
+let current=0;
+function unlock(){
+ const value=document.getElementById('pass').value;
+ if(value==='Veronica g'){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('main').style.display='flex';
+  makeDots(); hearts();
+ }else{
+  document.getElementById('error').textContent='Password sahi nahi hai, dobara try kijiye 💗';
+ }
+}
+document.getElementById('pass').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+function makeDots(){
+ const d=document.getElementById('dots');
+ for(let i=0;i<4;i++){let s=document.createElement('span');s.className='dot'+(i===0?' active':'');d.appendChild(s)}
+}
+function go(n){
+ const pages=[...document.querySelectorAll('.page')];
+ pages[current].classList.remove('active');current=n;pages[current].classList.add('active');
+ [...document.querySelectorAll('.dot')].forEach((d,i)=>d.classList.toggle('active',i===current));
+ hearts();
+}
+function showLove(){document.getElementById('flowerMsg').style.display='block';hearts()}
+function hearts(){
+ for(let i=0;i<16;i++){
+  const h=document.createElement('div');h.className='heart';
+  h.textContent=['💗','💕','🌸','❤️','🌷'][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+'vw';h.style.fontSize=(16+Math.random()*18)+'px';
+  h.style.animationDuration=(3+Math.random()*3)+'s';document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6500);
+ }
+}
+</script>
+</body>
+</html>
